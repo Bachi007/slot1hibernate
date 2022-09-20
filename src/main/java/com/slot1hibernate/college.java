@@ -1,5 +1,6 @@
 package com.slot1hibernate;
-
+//onetomany
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -21,42 +22,41 @@ public class college {
 		
 		Transaction tc=ses.beginTransaction();
 		
-		
-//		student s1=new student();
-//		s1.setStId(101);
-//		s1.setStName("ketan");
-//		s1.setStGroup("BCA");
-//		
 //		bike b1=new bike();
 //		b1.setBikeId(1);
-//		b1.setBikeName("Pulsar rs 200");
-//		s1.setStBike(b1);
-//		
-//		student s2=new student();
-//		s2.setStId(102);
-//		s2.setStName("Rahul");
-//		s2.setStGroup("PHD");
+//		b1.setBikeName("Honda african twin");
 //		
 //		bike b2=new bike();
 //		b2.setBikeId(2);
-//		b2.setBikeName("KTM Adv 390");
+//		b2.setBikeName("Ducati Multistarda");
 //		
-//		s2.setStBike(b2);
+//		student s1=new student();
+//		s1.setStId(121);
+//		s1.setStName("Sandeep");
+//		s1.setStGroup("BCA");
 //		
-//		ses.save(b2);
-//		ses.save(b1);
+//		List<bike> ll=new ArrayList<bike>();
+//		ll.add(b2);
+//		ll.add(b1);
+//		
+//		s1.setStBike(ll);
+//		
 //		ses.save(s1);
-//		ses.save(s2);
+//		ses.save(b1);
+//		ses.save(b2);
 //		
-//		System.out.println("Inserted successfully");
-		
-		
 		Query qu=ses.createQuery("from student");
-		
 		List<student> sl=qu.getResultList();
-		for(student s:sl)
-		System.out.println(s.getStName()+" has "+s.getStBike().getBikeName());
 		
+		for(student s:sl)
+		{
+		System.out.print(s.getStName()+" "+s.getStGroup());
+		List<bike> bl=s.getStBike();
+			for(bike b:bl)
+				System.out.print(b.getBikeName());
+		
+		
+		}
 		tc.commit();
 	}
 

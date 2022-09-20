@@ -1,5 +1,5 @@
 package com.slot1hibernate;
-
+//onetomany
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
