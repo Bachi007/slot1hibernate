@@ -1,5 +1,5 @@
 package com.slot1hibernate;
-
+//manytomany
 import java.util.ArrayList;
 import java.util.List;
 
